@@ -26,6 +26,9 @@ body {
     var(--background-start-rgb);
 }
 
+h1{
+  @apply font-black text-8xl
+}
 h2 {
   font-weight: 700;
   font-size: 4rem;
