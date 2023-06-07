@@ -1,4 +1,5 @@
 import { LightInDark } from "./LightInDark";
+import { OrderInChaos } from "./OrderInChaos";
 
 export default function Dual3D() {
   return (
@@ -22,11 +23,10 @@ export default function Dual3D() {
           className="absolute inset-0 bg-blue -z-10"
           style={{ clipPath: "polygon(25% 0, 100% 0%, 100% 100%, 0 100%)" }}
         />
-        <div
-          className="absolute right-0 bottom-0 left-1 top-1 bg-black cursor-pointer"
-          style={{ clipPath: "polygon(25% 0, 100% 0%, 100% 100%, 0 100%)" }}
-        ></div>
-        <h2 className="absolute bottom-0 right-0 z-40 -mb-11">Order in chaos</h2>
+        <OrderInChaos />
+        <h2 className="absolute bottom-0 right-0 z-40 -mb-11">
+          Order in chaos
+        </h2>
       </div>
     </div>
   );
