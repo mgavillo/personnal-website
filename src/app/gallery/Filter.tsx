@@ -14,7 +14,8 @@ function CheckBox({ name, checked,  onChange}: { name: string, checked: boolean,
           checked
             ? "  border-2 border-blue"
             : " bg-dark-blue hover:bg-white/25 border-white"
-        } checked:bg-gradient-radial from-neon-pink via-blue to-white hover:bg-blend-lighten focus:outline-transparent focus:border-0`}
+        } checked:bg-blue checked:before:bg-transparent from-neon-pink via-blue to-white hover:bg-blend-lighten focus:outline-transparent focus:border-0`}
+        // } checked:bg-gradient-radial from-neon-pink via-blue to-white hover:bg-blend-lighten focus:outline-transparent focus:border-0`}
       />
       {name}
     </label>
