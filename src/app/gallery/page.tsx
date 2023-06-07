@@ -11,10 +11,9 @@ export default function Gallery({searchParams,}: {
 })
 {
     if(searchParams.categories === null) searchParams.categories = "all"
-  return (
-    <div className="w-full min-h-screen p-24 px-48">
+    return (
+        <div className="w-full min-h-screen p-24 px-48">
       <Filter />
-      {/* @ts-expect-error Server Component */}
       <Grid searchParams={searchParams.categories} />
     </div>
   );
