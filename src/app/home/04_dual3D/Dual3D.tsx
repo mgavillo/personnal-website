@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 // import { LightInDark } from "./LightInDark";
 import { OrderInChaos } from "./OrderInChaos";
 
-const LightInDark = dynamic( () => import('./LightInDark'),
+const LightInDark = dynamic( () => import('./LightInDark').then((mod) => mod.LightInDark),
     {loading: () => <p>Dynamically loading my canvas component...</p>, ssr: false}
     
 );
