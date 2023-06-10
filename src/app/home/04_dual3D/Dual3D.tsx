@@ -1,5 +1,12 @@
-import { LightInDark } from "./LightInDark";
+"use client"
+import dynamic from "next/dynamic";
+// import { LightInDark } from "./LightInDark";
 import { OrderInChaos } from "./OrderInChaos";
+
+const LightInDark = dynamic( () => import('./LightInDark'),
+    {loading: () => <p>Dynamically loading my canvas component...</p>, ssr: false}
+    
+);
 
 export default function Dual3D() {
   return (
@@ -31,3 +38,4 @@ export default function Dual3D() {
     </div>
   );
 }
+
