@@ -30,9 +30,10 @@ export default function Header() {
 
   return (
     <header
-      className={` px-4 w-screen h-16 text-xl font-semibold fixed z-50 backdrop-blur-lg bg-dark-blue/50 flex justify-between top-0 transition-all ${
+      className={` px-4 w-screen h-16 text-xl font-semibold fixed z-50 backdrop-blur-lg bg-dark-blue/50 flex justify-between top-0 transition-all border-b border-white/10 ${
         scrollDirection == "down" ? " -translate-y-20" : ""
-      }`}>
+      }`}
+    >
       <div className="w-36"></div>
       <div className="flex flex-row h-full items-center">
         {paths.map((el, index) => {
@@ -41,28 +42,43 @@ export default function Header() {
             <Link
               key={index}
               href={currentPath}
-              className="relative w-36 py-2 h-full flex items-center justify-center"
+              className="relative w-36 py-2 h-full flex items-center justify-center text-white/70 hover:text-white transition-all"
               onMouseEnter={() => setHovered(index)}
-              onMouseLeave={() => setHovered(null)}>
-              <h3 className={` capitalize ${pathName == currentPath ? "text-white text-2xl" : " text-gray-300"}`}>
+              onMouseLeave={() => setHovered(null)}
+            >
+              <h3 className={` capitalize ${ pathName == currentPath ? "text-white" : ""}`}>
                 {el}
               </h3>
               <div
                 className={`${
                   currentPath == pathName ? " w-1/2" : "w-0"
-                } h-[1px] bg-white absolute bottom-0 transition-all`}></div>
-              <HoveredSelector hovered={hovered === index} />
+                } h-[1px] bg-white absolute bottom-0 transition-all`}
+              ></div>
+              <HoveredSelector
+                hovered={hovered === index}
+                className="top-2 bottom-2"
+              />
             </Link>
           );
         })}
       </div>
-      <div className="flex flex-row gap-3 h-full items-center w-36 justify-end">
-        <Selector className="p-3">
+      <div className="flex flex-row h-full items-center justify-end">
+        <div
+          className="relative cursor-pointer h-full flex items-center justify-center w-16 text-white/70 hover:text-white"
+          onMouseEnter={() => setHovered(3)}
+          onMouseLeave={() => setHovered(null)}
+        >
           <SiInstagram className="text-2xl" />
-        </Selector>
-        <Selector className="p-3">
+          <HoveredSelector hovered={hovered === 3} className="top-2 bottom-2" />
+        </div>
+        <div
+          className="relative cursor-pointer h-full flex items-center justify-center w-16 text-white/70 hover:text-white"
+          onMouseEnter={() => setHovered(4)}
+          onMouseLeave={() => setHovered(null)}
+        >
           <SiTwitter className="text-2xl" />
-        </Selector>
+          <HoveredSelector hovered={hovered === 4} className="top-2 bottom-2" />
+        </div>
       </div>
     </header>
   );
