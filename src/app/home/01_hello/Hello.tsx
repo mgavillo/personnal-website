@@ -14,7 +14,6 @@ import { Animations } from "@/components/Animations";
 import { LightInDark } from "../04_dual3D/LightInDark";
 import { useParallax } from "@/lib/useParallax";
 import Waves from "./Waves";
-import { First,  } from "@mgavillo/r3f-lib";
 export default function Hello() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref });
