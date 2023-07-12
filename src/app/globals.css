@@ -12,18 +12,22 @@
   :root {
     --foreground-rgb: #FFF;
     --background-start-rgb: theme(colors.dark-blue);
-    --background-end-rgb: theme(colors.300);
+    --background-end-rgb: theme(colors.dark-blue);
   }
+}
+html {
+  scroll-snap-type: y mandatory;
 }
 
 body {
   color: var(--foreground-rgb);
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       var(--background-end-rgb)
     )
-    var(--background-start-rgb);
+    var(--background-start-rgb); */
+    background-color: var(--background-end-rgb);
 }
 
 h1{

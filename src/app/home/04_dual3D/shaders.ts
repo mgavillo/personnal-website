@@ -6,13 +6,12 @@ attribute vec3 offset;
 attribute float angle;
 
 uniform float uClock;
-uniform int uMoving;
 uniform float uRandom;
 uniform float uDepth;
 uniform float uSize;
 uniform vec2 uTextureSize;
 uniform sampler2D uTexture;
-uniform sampler2D uTouch;
+uniform int uMoving;
 
 varying vec2 vPUv;
 varying vec2 vUv;
@@ -50,7 +49,6 @@ void main() {
 
 	vec3 displaced = offset;
 
-	// displaced.x += sin(uClock * 0.01) + pindex;
 	if(uMoving == 0){
 		displaced.y += sin(uClock + noise(noise(pindex)) + 1.0);
 		displaced.y +=  noise(noise(pindex) + uClock + 1.0);
@@ -62,22 +60,20 @@ void main() {
 		displaced.xy += vec2(rand(pindex) * (uRandom * rand(uClock * 0.004)) - 0.5, rand(offset.x + pindex) - 0.5) * uRandom * rand(uClock * 0.004);
 
 	}
-
-	// displaced.xy += vec2(rand(pindex) * rand(uClock * 0.004) - 0.5, rand(offset.x + pindex)* rand(uClock * 0.004) - 0.5);
-	float rndz = (rand(pindex) + noise2(vec2(pindex * 0.1, uClock * 0.4)));
-	displaced.z += rndz * (rand(pindex) * 1.0 * uDepth);
+	// float rndz = (rand(pindex) + noise2(vec2(pindex * 0.1, uClock * 0.4)));
+	// displaced.z += rndz * (rand(pindex) * 1.0 * uDepth);
 
 	displaced.xy -= uTextureSize * 0.5;
     
 	float psize = (noise2(vec2(uClock, pindex) * 0.5) + 2.0);
 	psize *= max(grey, 0.2);
 	psize *= uSize;
-    
+
 	vec4 mvPosition = modelViewMatrix * vec4(displaced, 1.0);
     mvPosition.xyz += position * psize;
+
 	vec4 finalPosition = projectionMatrix * mvPosition;
     
-	// vUv = vec2(uClock, uClock);
 	gl_Position = finalPosition;
 
 }
@@ -86,7 +82,6 @@ void main() {
 export const fragmentShader = `
 precision highp float;
 uniform sampler2D uTexture;
-uniform sampler2D uTouch;
 
 varying vec2 vUv;
 varying vec2 vPUv;
@@ -114,8 +109,4 @@ void main() {
 	color = colB;
 	color.a = t;
     gl_FragColor = color;
-	// gl_FragColor = texture2D(uTouch, uv);
-
-    // gl_FragColor= vec4(vUv, 0.0, 1.0);
-	// (...)
 }`;

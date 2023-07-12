@@ -1,31 +1,69 @@
+"use client";
+import Selector from "@/components/buttons/HoverButton";
 import Skill from "./Skill";
 import { skills } from "./skills";
-
-function Category({ text }: { text: string }) {
-  return (
-    <div
-      className="flex items-center justify-center w-32 bg-blue p-3 cursor-pointer -mr-3 select-none hover:mix-blend-hard-light"
-      style={{ clipPath: "polygon(20% 0%, 100% 0%, 80% 100%, 0% 100%)" }}
-    >
-      <h3>{text}</h3>
-    </div>
-  );
-}
+import useCharacterStore from "@/lib/zustandStore";
+import { useEffect, useRef, useState } from "react";
+import { useParallax } from "@/lib/useParallax";
+import { motion, useScroll } from "framer-motion";
+import { Reorder } from "framer-motion";
 
 export default function Infos() {
+  const { characterCat, setCharacterCat, incrCharacterCat, decrCharacterCat } = useCharacterStore();
+  const ref = useRef<HTMLDivElement>(null);
+  const top = useRef(0);
+  // const [scrollY, setScrollY] = useState(0);
+  const { scrollYProgress } = useScroll({ target: ref });
+  const y = useParallax(scrollYProgress, 100);
+
+  // const handleScroll = () => {
+  //   setScrollY(top.current - window.pageYOffset - ref.current.getBoundingClientRect().height/2 );
+  // };
+
+  // useEffect(() => {
+  //   top.current = ref.current.getBoundingClientRect().top
+  //   window.addEventListener("scroll", handleScroll);
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
   return (
-    <div className="w-2/5 min-w-[150px] flex flex-col justify-start h-full pt-28 gap-12">
-      <div id="categories" className="flex flex-row justify-start items-start">
-        <Category text="code" />
-        <Category text="2D" />
-        <Category text="3D" />
+    <motion.div
+      ref={ref}
+      style={{ y }}
+      initial={{ scale: 0 }}
+      whileInView={{ scale: 1 }}
+      className="w-1/2 min-w-[150px] flex flex-col justify-start h-full border-white/20 rounded-md border-05 shadow-lg shadow-black"
+      // style={{ transform: `translateY(${scrollY * -0.2}px)` }}
+    >
+      <div className="flex flex-row items-center border-white/20 border-b-05">
+        <div className="flex flex-row gap-2 px-3">
+          <div className="rounded-full w-3 h-3 border-white/20 " style={{ borderWidth: "0.5px" }} />
+          <div className="rounded-full w-3 h-3 border-white/20   " style={{ borderWidth: "0.5px" }} />
+          <div className="rounded-full w-3 h-3 border-white/20   " style={{ borderWidth: "0.5px" }} />
+        </div>
+        <div id="categories" className="flex flex-row justify-start items-end  w-full">
+          {skills.map((el, i) => (
+            <button
+              className={`cursor-pointer p-3 px-6 bg-opacity-20 backdrop-blur-sm border-white/20 border-l-05 border-r-05 ${
+                characterCat == i ? " bg-gradient-to-t from-neon-blue/20 to-transparent" : " bg-dark"
+              }`}
+              onClick={() => setCharacterCat(i)}>
+              <h3 className="text-base ">{el.name}</h3>
+            </button>
+          ))}
+        </div>
       </div>
-      
-      <div className="flex flex-col gap-4">
-        {skills[0].map((el, i) => (
-          <Skill name={el.text} percentage={el.percent} />
-        ))}
+      <div className="relative p-6  rounded-lg bg-gradient-to-t from-neon-blue/40 to-neon-blue/20 rounded-tl-none bg-opacity-20 backdrop-blur-sm h-[450px] overflow-y-scroll">
+
+        <div className="flex flex-row flex-wrap w-full gap-2">
+          {skills[characterCat].data.map((el, i) => (
+            <Skill name={el.text} percentage={el.percent} items={el.items} />
+          ))}
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

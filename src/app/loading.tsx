@@ -1,5 +1,12 @@
-export default function Loading(){
-    return (<div className="absolute w-screen h-screen z-50 flex items-center justify-center bg-dark-blue">
-        Loading
-    </div>)
-}   
+import Image from "next/image";
+
+export default function Loading() {
+  {
+    /* <Image src={"/logo.gif"} width={600} height={300} alt=''/> */
+  }
+  return (
+    <div className="absolute w-screen h-screen z-50 flex items-center justify-center bg-dark-blue">
+      {/* <Image src={"/logo.gif"} width={600} height={300} alt="" /> */}
+    </div>
+  );
+}

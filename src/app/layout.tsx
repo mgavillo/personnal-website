@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import { Suspense } from "react";
 import Loading from "./loading";
+import Image from "next/image";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,11 +19,22 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  let loadingScreen = true;
+  let timeout = setTimeout(() => {
+    loadingScreen = false;
+  }, 6000);
+
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <Head>
+        <link rel="shortcut icon" href="/icon.png" />
+      </Head>
+      <body
+        className={inter.className}
+        style={{ height: loadingScreen ? "100vh" : "" }}
+      >
         <Header />
-        <Suspense fallback={<Loading/>}>{children}</Suspense>
+        <Suspense fallback={<Loading />}>{children}</Suspense>
         <Footer />
       </body>
     </html>
