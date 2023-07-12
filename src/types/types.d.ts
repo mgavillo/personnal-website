@@ -4,7 +4,7 @@ export type GalleryElement = {
     created_at: Date;
     tags: string[];
     type: string;
-    software: string[];
+    softwares: string[];
     animation: string
   };
   
