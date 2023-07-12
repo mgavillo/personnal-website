@@ -11,7 +11,6 @@ import useOnScreen from "@/lib/useOnScreen";
 export default function Whoami() {
   const sectionRef = useRef(null);
 
-  const [rotation, setRotation] = useState<null | "left" | "right">(null);
   const isOnScreen = useOnScreen(sectionRef);
   return (
     <section className="w-full h-screen px-24 snap-center" ref={sectionRef}>
@@ -36,7 +35,7 @@ export default function Whoami() {
           > */}
           {/* <div className="bg-black w-full h-full" /> */}
           {/* <div className="absolute h-full w-[450px] top-0"> */}
-          <CanvasWrapper rotation={rotation} />
+          <CanvasWrapper  />
           {/* </div>
           </div> */}
           {/* <Arrow
