@@ -4,6 +4,8 @@ import { GalleryElement } from "@/types/types";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { iconComponentMap } from "@/lib/iconComponents";
+import Tooltip from "@/components/Tooltip";
 
 const dropIn = {
   hidden: {
@@ -52,17 +54,19 @@ export default function Element({ element }: { element: GalleryElement }) {
       )}
       {!isLoading && (
         <>
-          <div className="absolute top-2 left-2 w-fit flex flex-row gap-2 z-20">
-            {element.tags.map((tag, i) => {
+          <div className="absolute top-2 left-2 w-fit flex flex-row gap-2 z-20 group-hover:opacity-100 opacity-0">
+            {element.softwares.map((el, i) => {
               const delay = 0;
+              const IconComponent = iconComponentMap[el];
+
               return (
-                <div
-                  className={`border rounded-xl border-white text-xs px-3 py-1 group-hover:opacity-100 opacity-0 transition duration-700`}
-                  style={{ transitionDelay: `${delay}ms` }}
-                  key={`tag-${i}`}
-                >
-                  {tag}
-                </div>
+                <>
+                  {IconComponent && (
+                    // <Tooltip text={el}>
+                      <IconComponent size={24} />
+                    // </Tooltip>
+                  )}
+                </>
               );
             })}
           </div>
