@@ -397,10 +397,10 @@ export default function Filter() {
   }, [categories, selected]);
 
   return (
-    <div className=" z-0 h-screen rounded-md fixed top-0 py-28 left-0 flex flex-col items-start hover:bg-blend-multiply gap-6 p-4 border border-white/5 w-64">
+    <div className=" sticky top-24 rounded-md h-full  flex flex-col items-start hover:bg-blend-multiply gap-6 px-4 border-r border-white/5 overflow-scroll w-72">
       <h3 className=" text-white/80 font-medium text-xl">Filters</h3>
       <div className="w-full h-[1px] bg-white/10" />
-      <div className="flex flex-row w-full gap-2 flex-wrap justify-around px-6">
+      <div className="flex flex-row w-full gap-1 flex-wrap justify-around px-6">
         <Tooltip text="Static">
           <div
             className={`relative bg-dark-blue border border-white/10 rounded-md text-center cursor-pointer hover:bg-transparent flex items-center justify-center w-12 h-12 hover:bg-gradient-to-r hover:from-blue/20 hover:to-neon-blue/30 ${
