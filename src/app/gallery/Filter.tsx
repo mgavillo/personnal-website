@@ -330,13 +330,13 @@ export default function Filter() {
   }, [categories, selected]);
 
   return (
-    <div className=" h-screen rounded-md fixed top-0 py-28 left-0 flex flex-col items-start hover:bg-blend-multiply gap-6 p-4 border border-white/5 w-64">
+    <div className=" z-0 h-screen rounded-md fixed top-0 py-28 left-0 flex flex-col items-start hover:bg-blend-multiply gap-6 p-4 border border-white/5 w-64">
       <h3 className=" text-white/80 font-medium text-xl">Filters</h3>
       <div className="w-full h-[1px] bg-white/10"/>
       <div className="flex flex-row w-full gap-2 flex-wrap justify-around px-6">
         <Tooltip text="Static">
           <div
-            className={`relative bg-dark-blue border border-white/10 rounded-md text-center cursor-pointer hover:bg-transparent flex items-center justify-center w-12 h-12 ${
+            className={`relative bg-dark-blue border border-white/10 rounded-md text-center cursor-pointer hover:bg-transparent flex items-center justify-center w-12 h-12 hover:bg-gradient-to-r hover:from-blue/20 hover:to-neon-blue/30 ${
               selected[0] ? "bg-gradient-to-r from-blue/60 to-neon-blue/60" : "text-gray-400"
             }`}
             onMouseEnter={() => setHovered(0)}
@@ -348,7 +348,7 @@ export default function Filter() {
 
         <Tooltip text="Animated">
           <p
-            className={`relative bg-dark-blue border rounded-md border-white/10 text-center cursor-pointer hover:bg-transparent flex items-center justify-center w-12 h-12 ${
+            className={`relative bg-dark-blue border rounded-md border-white/10 text-center cursor-pointer hover:bg-transparent flex items-center justify-center w-12 h-12 hover:bg-gradient-to-r hover:from-blue/20 hover:to-neon-blue/30 ${
               selected[1] ? "bg-gradient-to-r from-blue/60 to-neon-blue/60" : "text-gray-400"
             }`}
             onMouseEnter={() => setHovered(1)}
@@ -359,7 +359,7 @@ export default function Filter() {
         </Tooltip>
         <Tooltip text="Interactive">
           <p
-            className={`relative bg-dark-blue border rounded-md border-white/10 text-center cursor-pointer hover:bg-transparent  flex items-center justify-center w-12 h-12 ${
+            className={`relative bg-dark-blue border rounded-md border-white/10 text-center cursor-pointer hover:bg-transparent  flex items-center justify-center w-12 h-12 hover:bg-gradient-to-r hover:from-blue/20 hover:to-neon-blue/30 ${
               selected[2] ? "  bg-gradient-to-r from-blue/60 to-neon-blue/60" : "text-gray-400"
             }`}
             onMouseEnter={() => setHovered(2)}
