@@ -5,7 +5,7 @@ import EmailSent from "./EmailSent";
 import ContactForm from "./ContactForm";
 
 export default function Contact() {
-  const [sent, setSent] = useState<boolean>(true);
+  const [sent, setSent] = useState<boolean>(false);
 
   return (
     <div className="w-full h-screen  relative overflow-hidden pb-1">
