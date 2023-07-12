@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
-    "@mgavillo/r3f-lib": "^1.0.3",
     "@react-three/drei": "^9.74.5",
     "@react-three/fiber": "^8.13.0",
     "@react-three/postprocessing": "^2.14.9",
