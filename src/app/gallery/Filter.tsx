@@ -167,24 +167,24 @@ function Row({ name, data, setCategories }: { name: string; data: string[]; setC
     setChildrenChecked(array);
   }, [checked]);
 
-  useEffect(() => {
-    console.log(indeterminate, checked, childrenChecked);
-    setCategories((categories: string[]) => {
-      let _categories = categories;
-      let includes = _categories.includes(name);
-      if (checked && !includes) _categories.push(name);
-      else if (!checked && includes) _categories = _categories.filter((el) => el !== name);
-      childrenChecked.map((el, i) => {
-        includes = _categories.includes(data[i]);
-        if (el && !includes) {
-          _categories.push(data[i]);
-        } else if (!el && includes) {
-          _categories = _categories.filter((el) => el !== data[i]);
-        }
-      });
-      return _categories;
-    });
-  }, [childrenChecked]);
+  // useEffect(() => {
+  //   console.log(indeterminate, checked, childrenChecked);
+  //   setCategories((categories: string[]) => {
+  //     let _categories = categories;
+  //     let includes = _categories.includes(name);
+  //     if (checked && !includes) _categories.push(name);
+  //     else if (!checked && includes) _categories = _categories.filter((el) => el !== name);
+  //     childrenChecked.map((el, i) => {
+  //       includes = _categories.includes(data[i]);
+  //       if (el && !includes) {
+  //         _categories.push(data[i]);
+  //       } else if (!el && includes) {
+  //         _categories = _categories.filter((el) => el !== data[i]);
+  //       }
+  //     });
+  //     return _categories;
+  //   });
+  // }, [childrenChecked]);
 
   useEffect(() => {
     let includesTrue = childrenChecked.includes(true);
@@ -305,9 +305,9 @@ function SubRow({
 export default function Filter() {
   const _categories = [
     { name: "2D", data: ["Flat", "Vector"] },
-    { name: "3D", data: ["Shaders", "Modeling"] },
+    { name: "3D", data: ["Shaders", "Modelling"] },
   ];
-  const [categories, setCategories] = useState(_categories.flatMap((el) => [el.name, ...el.data]));
+  const [categories, setCategories] = useState(_categories.flatMap((el) => [...el.data]));
   const router = useRouter();
   const searchParams = useSearchParams();
   const [hovered, setHovered] = useState<null | number>(null);
