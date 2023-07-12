@@ -19,6 +19,11 @@ html {
   scroll-snap-type: y mandatory;
 }
 
+::selection {
+  color: theme(colors.white);
+  background: theme(colors.neon-pink);
+}
+
 body {
   color: var(--foreground-rgb);
   /* background: linear-gradient(
