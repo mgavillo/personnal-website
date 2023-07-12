@@ -623,15 +623,7 @@ type ActionName =
 type GLTFActions = Record<ActionName, THREE.AnimationAction>;
 const dict = ["fingers", "jump", "kick"];
 const lookat = new THREE.Vector3(0, 0.7, 0);
-export function Rain({
-  category = 0,
-  rotation,
-  isOnScreen,
-}: {
-  category?: number;
-  rotation: null | "left" | "right";
-  isOnScreen?: boolean;
-}) {
+export function Rain({ category = 0 }: { category?: number }) {
   const { characterCat, setCharacterCat, incrCharacterCat, decrCharacterCat } =
     useCharacterStore();
   // const [prevCategory, setPrevCategory] = useState<number | null>();
@@ -700,8 +692,6 @@ export function Rain({
 
   useFrame(({ clock, camera }) => {
     // mixer.update(clock.getDelta());
-    if (rotation == "left") group.current.rotation.y -= 0.1;
-    else if (rotation == "right") group.current.rotation.y += 0.1;
     camera.position.y = xposition.get();
     camera.lookAt(lookat);
   });

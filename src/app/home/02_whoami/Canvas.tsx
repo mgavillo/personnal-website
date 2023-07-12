@@ -6,16 +6,14 @@ import useOnScreen from "@/lib/useOnScreen";
 import { PerspectiveCamera } from "@react-three/drei";
 
 export default function CanvasWrapper({
-  rotation,
 }: {
-  rotation: null | "left" | "right";
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const isOnScreen = useOnScreen(canvasRef);
   
   return (
     <Canvas frameloop={isOnScreen ? "always" : "never"} ref={canvasRef} className="overflow-visible -mt-28" style={{width: "609px", height:"100vh"}}>
-      <Rain rotation={rotation} isOnScreen = {isOnScreen} />
+      <Rain />
       <ambientLight color="#FFFFFF" intensity={10} />
       <spotLight
         intensity={1}

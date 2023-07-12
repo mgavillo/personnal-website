@@ -25,6 +25,7 @@ import {
 extend({ UnrealBloomPass });
 import { BlendFunction } from "postprocessing";
 import { useScroll, useTransform } from "framer-motion";
+import useOnScreen from "@/lib/useOnScreen";
 
 const vector = [0, 0, 0];
 const lookat = new THREE.Vector3(100, 30, 500);
@@ -57,12 +58,14 @@ function Text() {
 }
 
 export default function Waves() {
+  const canvasRef = useRef(null)
   const uniforms = {
     center: { value: "co" },
   };
-  
+  const isOnScreen = useOnScreen(canvasRef);
+
   return (
-    <Canvas className="absolute top-0 w-screen" style={{height: "200vh"}}>
+    <Canvas ref={canvasRef} className="absolute top-0 w-screen" style={{height: "100vh"}} frameloop={isOnScreen ? "always" : "never"}>
       <PerspectiveCamera makeDefault={true} far={375.79999} near={0.1} fov={22.89519} rotation={[0, 0, 0]} position={[0, 0, -110]}/>
       <Text />
       {/* <perspectiveCamera /> */}
