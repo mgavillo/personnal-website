@@ -397,7 +397,7 @@ export default function Filter() {
   }, [categories, selected]);
 
   return (
-    <div className=" sticky top-24 rounded-md h-full  flex flex-col items-start hover:bg-blend-multiply gap-6 px-4 border-r border-white/5 overflow-scroll w-72">
+    <div className=" sticky top-24 rounded-md h-full  flex flex-col items-start hover:bg-blend-multiply gap-6 p-4 border border-white/5 overflow-scroll w-72">
       <h3 className=" text-white/80 font-medium text-xl">Filters</h3>
       <div className="w-full h-[1px] bg-white/10" />
       <div className="flex flex-row w-full gap-1 flex-wrap justify-around px-6">
