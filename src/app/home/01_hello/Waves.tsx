@@ -60,8 +60,6 @@ export default function Waves() {
   const uniforms = {
     center: { value: "co" },
   };
-
-  const [map] = useLoader(THREE.TextureLoader, ["/matcap.png"])
   
   return (
     <Canvas className="absolute top-0 w-screen" style={{height: "200vh"}}>
