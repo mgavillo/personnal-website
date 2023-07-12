@@ -46,7 +46,11 @@ export default function Header() {
               onMouseEnter={() => setHovered(index)}
               onMouseLeave={() => setHovered(null)}
             >
-              <h3 className={` capitalize ${ pathName == currentPath ? "text-white" : ""}`}>
+              <h3
+                className={` capitalize ${
+                  pathName == currentPath ? "text-white" : ""
+                }`}
+              >
                 {el}
               </h3>
               <div
@@ -63,22 +67,26 @@ export default function Header() {
         })}
       </div>
       <div className="flex flex-row h-full items-center justify-end">
-        <div
-          className="relative cursor-pointer h-full flex items-center justify-center w-16 text-white/70 hover:text-white"
+        <a
+          href={"https://www.instagram.com/_swaggymarie"}
+          target="_blank"
+          className="relative cursor-pointer h-full flex items-center justify-center w-16 transition-all text-white/70 hover:text-white"
           onMouseEnter={() => setHovered(3)}
           onMouseLeave={() => setHovered(null)}
         >
           <SiInstagram className="text-2xl" />
           <HoveredSelector hovered={hovered === 3} className="top-2 bottom-2" />
-        </div>
-        <div
-          className="relative cursor-pointer h-full flex items-center justify-center w-16 text-white/70 hover:text-white"
+        </a>
+        <a
+          href={"https://www.twitter.com/swagy_marie"}
+          target="_blank"
+          className="relative cursor-pointer h-full flex items-center justify-center w-16 transition-all text-white/70 hover:text-white"
           onMouseEnter={() => setHovered(4)}
           onMouseLeave={() => setHovered(null)}
         >
           <SiTwitter className="text-2xl" />
           <HoveredSelector hovered={hovered === 4} className="top-2 bottom-2" />
-        </div>
+        </a>
       </div>
     </header>
   );
