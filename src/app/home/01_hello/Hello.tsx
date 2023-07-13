@@ -34,12 +34,23 @@ export default function Hello() {
   return (
     <motion.section className="w-screen h-screen flex items-center justify-center relative py-24" style={{height: "100vh"}} ref={ref} initial="hidden" animate="visible">
       {/* <LightInDark isOnScreen={true} /> */}
-     
-     <div className="absolute top-0 h-screen w-screen -z-10">
+      <div className="flex flex-col justify-start items-center">
+        <p>Hello, i'm Marie</p>
+        <h1 className=" w-[1200px] h-32 text-center bg-gradient-radial from-white from-30% to-blue/5 text-white text-opacity-50 bg-clip-text">
+          Developer and designer
+        </h1>
+        <h3 className="text-left text-3xl ">
+          I can help you{" "}
+          <span className="bg-gradient-to-r from-neon-pink to-neon-blue text-white/25 bg-clip-text relative font-bold">
+            write specifications
+          </span>
+        </h3>
+      </div>
+     <div className="absolute top-0 h-screen w-screen z-30 pointer-events-none">
       <Waves/>
       </div>
 
-      {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-transparent via-dark-blue/60 to-dark-blue z-20 pointer-events-none" style={{height: "100vh"}}></div> */}
+      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-transparent via-dark-blue to-transparent -mb-48 z-40 pointer-events-none h-96"></div>
       {/* <div className="absolute h-screen inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-neon-violet via-blue to-dark-blue via-4:orange-500 -z-40 bg-opacity-5"></div> */}
     </motion.section>
   );
