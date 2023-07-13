@@ -14,6 +14,8 @@ import { Animations } from "@/components/Animations";
 import { LightInDark } from "../04_dual3D/LightInDark";
 import { useParallax } from "@/lib/useParallax";
 import Waves from "./Waves";
+import Waves3 from "@/components/backgrounds/Waves3";
+import Waves4 from "@/components/backgrounds/Waves4";
 export default function Hello() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref });
@@ -34,7 +36,7 @@ export default function Hello() {
   return (
     <motion.section className="w-screen h-screen flex items-center justify-center relative py-24" style={{height: "100vh"}} ref={ref} initial="hidden" animate="visible">
       {/* <LightInDark isOnScreen={true} /> */}
-      <div className="flex flex-col justify-start items-center">
+      {/* <div className="flex flex-col justify-start items-center">
         <p>Hello, i'm Marie</p>
         <h1 className=" w-[1200px] h-32 text-center bg-gradient-radial from-white from-30% to-blue/5 text-white text-opacity-50 bg-clip-text">
           Developer and designer
@@ -45,8 +47,8 @@ export default function Hello() {
             write specifications
           </span>
         </h3>
-      </div>
-     <div className="absolute top-0 h-screen w-screen z-30 pointer-events-none">
+      </div> */}
+     <div className="absolute inset-0 z-30 pointer-events-none">
       <Waves/>
       </div>
 
