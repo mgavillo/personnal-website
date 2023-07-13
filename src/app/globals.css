@@ -2,18 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: #000;
-  --background-start-rgb: #EEE;
-  --background-end-rgb: #FFF;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: #FFF;
-    --background-start-rgb: theme(colors.dark-blue);
-    --background-end-rgb: theme(colors.dark-blue);
-  }
+:root {
+  --foreground-rgb: #FFF;
+  --background-start-rgb: theme(colors.dark-blue);
+  --background-end-rgb: theme(colors.dark-blue);
 }
 html {
   scroll-snap-type: y mandatory;
