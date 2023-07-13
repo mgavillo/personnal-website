@@ -2,7 +2,7 @@
 
 import CanvasWrapper from "./Canvas";
 import Infos from "./Infos";
-import { useRef, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedLetters from "@/components/AnimatedLetters";
 import useOnScreen from "@/lib/useOnScreen";
@@ -22,7 +22,9 @@ export default function Whoami() {
       )}
       <div className="flex flex-row justify-around">
         <div id="character-wraper" className="flex flex-row gap-10 items-center overflow-visible">
-          <CanvasWrapper />
+          <Suspense fallback="">
+            <CanvasWrapper />
+          </Suspense>
         </div>
         <Infos />
       </div>
