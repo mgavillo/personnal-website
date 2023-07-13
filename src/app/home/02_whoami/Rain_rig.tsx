@@ -629,7 +629,7 @@ export function Rain({ category = 0 }: { category?: number }) {
   // const [prevCategory, setPrevCategory] = useState<number | null>();
   const group = useRef<THREE.Group>(null);
   const { scrollYProgress } = useScroll();
-  const xposition = useTransform(scrollYProgress, [0, 1], [2.5, -0.2]);
+  const xposition = useTransform(scrollYProgress, [0, 1], [3.5, -0.2]);
   const distance = useTransform(scrollYProgress, [0, 0.8], [0.5, 0.5]);
   const [prevCat, setPrevCat] = useState(null);
 
