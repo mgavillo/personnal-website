@@ -24,7 +24,7 @@ export default function Skill({
 
 
   return (
-    <div ref={ref} className="group p-4 rounded-lg bg-dark-blue text-2xl w-32 h-32 overflow-y-scroll flex flex-col items-center justify-around cursor-pointer text-gray-400 hover:bg-black group hover:text-white hover:shadow-box-xs hover:text-4xl " >
+    <div ref={ref} className="group p-4 rounded-lg bg-dark-blue text-2xl w-32 h-32 overflow-y-scroll flex flex-col items-center justify-around cursor-pointer text-gray-400 hover:bg-black group hover:text-white hover:shadow-box-xs hover:text-4xl overflow-hidden " >
       {IconComponent ? (
         <IconComponent className="" />
       ) : <div className=" capitalize font-bold ">{name[0]}</div>}
