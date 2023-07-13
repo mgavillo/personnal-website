@@ -10,7 +10,14 @@ import {
 import { Canvas, extend, useFrame, useLoader } from "@react-three/fiber";
 import { vertex, fragment } from "./shaders";
 import { useRef } from "react";
-import { BufferGeometry, Material, Mesh, MeshPhongMaterial, NormalBufferAttributes, PlaneGeometry } from "three";
+import {
+  BufferGeometry,
+  Material,
+  Mesh,
+  MeshPhongMaterial,
+  NormalBufferAttributes,
+  PlaneGeometry,
+} from "three";
 import * as THREE from "three";
 import { UnrealBloomPass } from "three-stdlib";
 import {
@@ -36,12 +43,18 @@ function Text() {
   useFrame(({ clock, camera }) => {
     // mixer.update(clock.getDelta());
     camera.position.y = xposition.get();
-    // camera.lookAt(lookat);
+    camera.lookAt(lookat);
   });
 
   return (
-    <Html as="div" position={[250, 20, 700]} receiveShadow castShadow className="w-screen">
-      <div className="flex flex-col justify-start items-center">
+    <Html
+      as="div"
+      position={[300, 0, 700]}
+      receiveShadow
+      castShadow
+      className="w-screen"
+    >
+      {/* <div className="flex flex-col justify-start items-center">
         <p>Hello, i'm Marie</p>
         <h1 className=" w-[1200px] h-32 text-center bg-gradient-radial from-white from-30% to-blue/5 text-white text-opacity-50 bg-clip-text">
           Developer and designer
@@ -52,29 +65,38 @@ function Text() {
             write specifications
           </span>
         </h3>
-      </div>
+      </div> */}
     </Html>
   );
 }
 
 export default function Waves() {
-  const canvasRef = useRef(null)
+  const canvasRef = useRef(null);
   const uniforms = {
     center: { value: "co" },
   };
   const isOnScreen = useOnScreen(canvasRef);
 
   return (
-    <Canvas ref={canvasRef} className="absolute top-0 w-screen" style={{height: "100vh"}} frameloop={isOnScreen ? "always" : "never"}>
-      <PerspectiveCamera makeDefault={true} far={375.79999} near={0.1} fov={22.89519} rotation={[0, 0, 0]} position={[0, 0, -110]}/>
-      <Text />
-      {/* <perspectiveCamera /> */}
-      <group position={[0, 0, 300]} rotation={[0, 0, 1.60254]}>
-        <directionalLight intensity={30} color="#FF00E5" rotation={[0, 0, 0]} />
-      </group>
-      <group position={[0, 0, -300]} rotation={[0, 3, 0]}>
-        <directionalLight intensity={1} color="#6a00ff" rotation={[0, 0, 0]} />
-      </group>
+    <Canvas
+      ref={canvasRef}
+      className="absolute z-30 top-0 w-screen"
+      style={{ height: "100vh" }}
+      frameloop={isOnScreen ? "always" : "never"}
+      camera={{ fov: 75, far: 375, near: 0.1, position: [0, 0, -100] }}
+    >
+      <directionalLight
+        intensity={30}
+        color="#FF00E5"
+        rotation={[0, 0, 1.60254]}
+        position={[0, 0, 300]}
+      />
+      <directionalLight
+        intensity={1}
+        color="#6a00ff"
+        position={[0, 20, -50]}
+        rotation={[0, 3, 0]}
+      />
       <ambientLight color="#2809DA" />
       <group position={[50, 24, 100.29852]}>
         <mesh castShadow receiveShadow scale={0.40021}>
@@ -86,7 +108,12 @@ export default function Waves() {
           <meshPhongMaterial color="#2809DA" />
         </mesh>
       </group>
-      <mesh castShadow receiveShadow position={[-15, -0.53129, 120]} scale={0.91328}>
+      <mesh
+        castShadow
+        receiveShadow
+        position={[-15, -0.53129, 120]}
+        scale={0.91328}
+      >
         <sphereGeometry args={[2, 32, 16]} />
         <meshPhongMaterial color="#2809da5a" />
       </mesh>
@@ -95,18 +122,23 @@ export default function Waves() {
 
         <meshPhongMaterial color="#2809DA" />
       </mesh>
-      <mesh castShadow receiveShadow position={[0, -21, -90]} rotation={[-Math.PI / 2, 0, 0]}>
+      <mesh
+        castShadow
+        receiveShadow
+        position={[0, 0, -70]}
+        rotation={[-Math.PI / 2, 0, 0]}
+      >
         <sphereGeometry args={[20, 124, 78]} />
-        <meshPhongMaterial color="#0d0056" />
+        <meshPhongMaterial color="#000038" />
       </mesh>
       {/* <Stars /> */}
       <EffectComposer>
         <Bloom mipmapBlur luminanceThreshold={0.2} />
-        <Autofocus />
+        {/* <Autofocus /> */}
       </EffectComposer>
       {/* <Effects> */}
       {/* </Effects> */}
-      <OrbitControls />
+      {/* <OrbitControls /> */}
     </Canvas>
   );
 }
