@@ -6,7 +6,7 @@ import Waves3 from "@/components/backgrounds/Waves3";
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-between h-fit overflow-hidden gap-56">
+    <main className="relative flex min-h-screen flex-col items-center justify-between h-fit overflow-hidden gap-24">
 
       <Hello />
       <Whoami />
