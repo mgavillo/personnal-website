@@ -637,58 +637,58 @@ export function Rain({ category = 0 }: { category?: number }) {
     "/rain_rig.glb"
   ) as GLTFResult;
   const { actions, mixer } = useAnimations(animations, group);
-  useEffect(() => {
-    mixer.stopAllAction();
+  // useEffect(() => {
+  //   mixer.stopAllAction();
 
-    mixer.addEventListener("finished", (e) => {
-      console.log("finished");
-      if (e.action._clip.name.endsWith("Out")) {
-        mixer.stopAllAction();
-        const action: string = dict[characterCat];
-        if (!actions[action]) return;
-        actions[action].reset();
-        actions[action].clampWhenFinished = true;
-        actions[action].setLoop(THREE.LoopOnce, 1).play();
-        //       const action: string = dict[category];
-        //       // console.log("finished", prevAction);
-        //       mixer.stopAllAction();
-        //       actions[action]?.reset().setLoop(THREE.LoopOnce, 1).play();
-      }
-    });
-    //   // if (!actions["fingers"]) return;
-    //   // actions["fingers"]?.play();
-  }, []);
+  //   mixer.addEventListener("finished", (e) => {
+  //     console.log("finished");
+  //     if (e.action._clip.name.endsWith("Out")) {
+  //       mixer.stopAllAction();
+  //       const action: string = dict[characterCat];
+  //       if (!actions[action]) return;
+  //       actions[action].reset();
+  //       actions[action].clampWhenFinished = true;
+  //       actions[action].setLoop(THREE.LoopOnce, 1).play();
+  //       //       const action: string = dict[category];
+  //       //       // console.log("finished", prevAction);
+  //       //       mixer.stopAllAction();
+  //       //       actions[action]?.reset().setLoop(THREE.LoopOnce, 1).play();
+  //     }
+  //   });
+  //   //   // if (!actions["fingers"]) return;
+  //   //   // actions["fingers"]?.play();
+  // }, []);
 
-  useEffect(() => {
-    mixer.stopAllAction();
-    const action: string = dict[characterCat];
-    if (!actions[action]) return;
-    actions[action].reset();
-    actions[action].clampWhenFinished = true;
-    actions[action].setLoop(THREE.LoopOnce, 1).play();
-  }, []);
+  // useEffect(() => {
+  //   mixer.stopAllAction();
+  //   const action: string = dict[characterCat];
+  //   if (!actions[action]) return;
+  //   actions[action].reset();
+  //   actions[action].clampWhenFinished = true;
+  //   actions[action].setLoop(THREE.LoopOnce, 1).play();
+  // }, []);
 
-  useEffect(() => {
-    mixer.stopAllAction();
-    const action: string = dict[prevCat] + "Out";
+  // useEffect(() => {
+  //   mixer.stopAllAction();
+  //   const action: string = dict[prevCat] + "Out";
 
-    actions[action]?.reset().setLoop(THREE.LoopOnce, 1).play();
-    if (prevCat !== characterCat) {
-      setPrevCat(characterCat);
-    }
-    mixer.addEventListener("finished", (e) => {
-      console.log("finished");
-      if (e.action._clip.name.endsWith("Out")) {
-        mixer.stopAllAction();
-        const action: string = dict[characterCat];
-        actions[action]?.reset().setLoop(THREE.LoopOnce, 1).play();
-        //       const action: string = dict[category];
-        //       // console.log("finished", prevAction);
-        //       mixer.stopAllAction();
-        //       actions[action]?.reset().setLoop(THREE.LoopOnce, 1).play();
-      }
-    });
-  }, [characterCat]);
+  //   actions[action]?.reset().setLoop(THREE.LoopOnce, 1).play();
+  //   if (prevCat !== characterCat) {
+  //     setPrevCat(characterCat);
+  //   }
+  //   mixer.addEventListener("finished", (e) => {
+  //     console.log("finished");
+  //     if (e.action._clip.name.endsWith("Out")) {
+  //       mixer.stopAllAction();
+  //       const action: string = dict[characterCat];
+  //       actions[action]?.reset().setLoop(THREE.LoopOnce, 1).play();
+  //       //       const action: string = dict[category];
+  //       //       // console.log("finished", prevAction);
+  //       //       mixer.stopAllAction();
+  //       //       actions[action]?.reset().setLoop(THREE.LoopOnce, 1).play();
+  //     }
+  //   });
+  // }, [characterCat]);
 
   useFrame(({ clock, camera }) => {
     // mixer.update(clock.getDelta());
