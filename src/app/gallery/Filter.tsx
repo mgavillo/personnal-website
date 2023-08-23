@@ -6,7 +6,6 @@ import { HiOutlineCursorArrowRays } from "react-icons/hi2";
 import { PiSneakerMove } from "react-icons/pi";
 import { MdRemove } from "react-icons/md";
 import Selector from "@/components/buttons/Selector";
-import { skills } from "../home/02_whoami/skills3";
 import { iconComponentMap } from "@/lib/iconComponents";
 import Tooltip from "@/components/Tooltip";
 import { text } from "stream/consumers";
