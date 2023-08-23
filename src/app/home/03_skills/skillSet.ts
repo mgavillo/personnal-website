@@ -1,4 +1,4 @@
-export const skills = [
+export const skillSet = [
   {
     name: "Frontend",
     data: [

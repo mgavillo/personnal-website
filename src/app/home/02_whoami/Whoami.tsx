@@ -1,7 +1,6 @@
 "use client";
 
 import CanvasWrapper from "./Canvas";
-import Infos from "./Infos";
 import { Suspense, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import AnimatedLetters from "@/components/AnimatedLetters";
@@ -10,10 +9,10 @@ import Waves3 from "@/components/backgrounds/Waves3";
 
 export default function Whoami() {
   const sectionRef = useRef(null);
-
   const isOnScreen = useOnScreen(sectionRef);
+
   return (
-    <section className="w-full h-screen px-24 snap-center relative " ref={sectionRef}>
+    <section className="items-start" ref={sectionRef}>
       {isOnScreen && (
         <h2 className="flex flex-row items-center gap-2">
           <span className="text-neon-pink">{"→ "}</span>
@@ -21,12 +20,12 @@ export default function Whoami() {
         </h2>
       )}
       <div className="flex flex-row justify-around">
-        <div id="character-wraper" className="flex flex-row gap-10 items-center overflow-visible">
+        {/* <div id="character-wraper" className="flex flex-row gap-10 items-center overflow-visible"> */}
           <Suspense fallback="">
             <CanvasWrapper />
           </Suspense>
-        </div>
-        <Infos />
+        {/* </div> */}
+        {/* <Infos /> */}
       </div>
     </section>
   );

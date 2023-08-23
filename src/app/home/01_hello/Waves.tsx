@@ -57,8 +57,8 @@ function Text() {
         <h1 className=" w-[1200px] h-32 text-center bg-gradient-radial from-white from-30% to-blue/5 text-white text-opacity-50 bg-clip-text">
           Developer and designer
         </h1>
-        <h3 className="text-left text-3xl flex flex-row gap-2">
-          I can help you{" "}
+        <h3 className="text-left flex flex-row gap-2">
+          I can help you
           <TypedLetters
             texts={subTexts}
             className="bg-gradient-to-r from-neon-pink to-neon-blue text-white/25 bg-clip-text relative font-bold"
