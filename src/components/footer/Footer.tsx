@@ -9,9 +9,8 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="footer relative h-40 shadow-box-xs">
-      <div className="absolute inset-0 flex flex-row px-24 justify-between z-50 py-12 bg-blue/50">
-        <div>
+    <footer className="footer relative shadow-box-xs flex flex-row flex-wrap px-8 md:px-24 justify-between gap-6 z-50 py-12 bg-blue/50">
+        <div className=" w-72">
           <p>Made with 💕 by Marie</p>
           <p>Copyright © 2023 - MIT License</p>
         </div>
@@ -23,7 +22,6 @@ export default function Footer() {
           <SiThreedotjs size={20} />
           <SiSupabase size={20} />
         </div>
-      </div>
     </footer>
   );
 }
