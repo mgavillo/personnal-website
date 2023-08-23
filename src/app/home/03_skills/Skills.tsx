@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { useParallax } from "@/lib/useParallax";
 import { motion, useScroll } from "framer-motion";
 import { Reorder } from "framer-motion";
+import SectionTitle from "@/components/SectionTitle";
 
 function Circle() {
   return <div className="rounded-full w-2 md:w-3 h-2 md:h-3 border-white/20 " style={{ borderWidth: "0.5px" }} />;
@@ -35,6 +36,10 @@ export default function Skills() {
 
   return (
     <section className="items-center justify-center pt-0 pb-24">
+      <span className="w-full">
+      <SectionTitle text="Skills"/>
+
+      </span>
       <motion.div
         ref={ref}
         style={{ y }}
