@@ -5,17 +5,26 @@ import Footer from "@/components/footer/Footer";
 import { Suspense } from "react";
 import Loading from "./loading";
 import Head from "next/head";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Frontend developer & designer",
+  description: "Front end developer and designer available to hire as a freelancer.",
+  creator: "Swaggy Marie",
+  icons: [
+    {
+      rel: "icon",
+      type: "image/png",
+      url: "/icon.png",
+    },
+  ],
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <Head>
-        <title>Frontend Developer & Designer</title>
-        <link rel="shortcut icon" href="/icon.png" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
       <body className={inter.className} style={{ height: "100vh" }}>
         <Header />
         <Suspense fallback={<Loading />}>{children}</Suspense>
