@@ -7,6 +7,7 @@ export const metadata = {
   title: "Gallery",
   description: "Browse projects I did",
 };
+
 function filterData(data: GalleryElement[] | undefined, categories: string, animation: string) {
   if (!data) return [];
   return data.filter((el) => {

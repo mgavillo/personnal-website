@@ -88,6 +88,7 @@ function Row({ name, data, setCategories }: { name: string; data: string[]; setC
         <ul className="flex flex-col w-full">
           {data.map((el, index) => (
             <SubRow
+              key={index}
               text={el}
               checked={childrenChecked[index]}
               setParentHovered={setHovered}
@@ -188,8 +189,8 @@ export default function Filter() {
         />
       </div>
       <ul className="flex flex-row md:flex-col items-start w-full">
-        {_categories.map((el) => (
-          <Row name={el.name} data={el.data} setCategories={setCategories} />
+        {_categories.map((el, i) => (
+          <Row key={i} name={el.name} data={el.data} setCategories={setCategories} />
         ))}
       </ul>
     </div>

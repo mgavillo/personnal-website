@@ -2,7 +2,6 @@ import { MetadataRoute } from 'next'
  
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    
     name: 'Frontend developer & Designer',
     short_name: 'fe dev & designer',
     description: 'Front end developer and designer available to hire as a freelancer.',

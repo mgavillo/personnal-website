@@ -63,7 +63,7 @@ export default function Element({ element }: { element: GalleryElement }) {
                 <>
                   {IconComponent && (
                     // <Tooltip text={el}>
-                      <IconComponent size={24} />
+                      <IconComponent size={24} key={i}/>
                     // </Tooltip>
                   )}
                 </>

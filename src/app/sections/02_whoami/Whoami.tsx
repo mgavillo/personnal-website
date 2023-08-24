@@ -43,7 +43,7 @@ export default function Whoami() {
             drinking game which was a whole experience : with music, engraved PCB, leds everywhere.
           </li>
           <li>
-            That's why after school I pretty naturally learned more about{" "}
+            That&apos;s why after school I pretty naturally learned more about{" "}
             <span className="font-bold text-white">graphic design</span>,{" "}
             <span className="font-bold text-white">ui design</span> and <span className="font-bold text-white">3D</span>
             , so I could mix both code and visual creativity.
@@ -51,7 +51,7 @@ export default function Whoami() {
         </ul>
         <p></p>
         <p>
-          Hard work and kindness are my core values. I'm an optimist at heart, dedicated to projects that can drive real
+          Hard work and kindness are my core values. I&apos;m an optimist at heart, dedicated to projects that can drive real
           societal change, hence my love for ecology, blockchain, AI for good, open source.
         </p>
       </div>

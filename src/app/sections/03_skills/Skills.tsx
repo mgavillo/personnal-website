@@ -35,8 +35,7 @@ export default function Skills() {
   return (
     <section className="items-center justify-center pt-0 pb-24">
       <span className="w-full">
-      <SectionTitle text="Skills"/>
-
+        <SectionTitle text="Skills" />
       </span>
       <motion.div
         ref={ref}
@@ -53,6 +52,7 @@ export default function Skills() {
           <div id="categories" className="flex flex-row justify-start">
             {skillSet.map((el, i) => (
               <button
+                key={i}
                 className={`cursor-pointer p-3 w-[97px] md:w-[160px] bg-opacity-20 backdrop-blur-sm border-white/20 border-l-05 border-r-05 font-semibold
                         ${characterCat == i ? " bg-gradient-to-t from-neon-blue/20 to-transparent" : " bg-dark"}`}
                 onClick={() => setCharacterCat(i)}>
@@ -64,7 +64,7 @@ export default function Skills() {
         <div className="w-full rounded-b-lg bg-gradient-to-t from-neon-blue/40 to-neon-blue/20 bg-opacity-20 backdrop-blur-sm h-[380px] md:h-[450px] overflow-y-scroll">
           <div className="box-content p-2 md:p-6 flex flex-row flex-wrap gap-1">
             {skillSet[characterCat].data.map((el, i) => (
-              <Skill name={el.text} percentage={el.percent} items={el.items} />
+              <Skill key={i} name={el.text} percentage={el.percent} items={el.items} />
             ))}
           </div>
         </div>
