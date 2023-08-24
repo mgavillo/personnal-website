@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { SiInstagram, SiTwitter } from "react-icons/si";
-import Selector from "../buttons/HoverButton";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import HoveredSelector from "../HoveredSelector";
