@@ -10,8 +10,9 @@ export default function CanvasWrapper({}: {}) {
   const isOnScreen = useOnScreen(canvasRef);
 
   return (
-    <div className="overflow-visible h-[80vh] w-[200px] md:h-screen md:w-[500px]">
-      <Canvas frameloop={isOnScreen ? "always" : "never"} ref={canvasRef}>
+    <div className="w-full md:w-fit flex justify-end md:justify-start">
+    <div className="relative overflow-hidden md:overflow-visible h-[242px] md:h-screen w-[150px] md:w-[500px] md:mb-0 -mb-24  border md:border-transparent border-neon-blue rounded-md">
+      <Canvas frameloop={isOnScreen ? "always" : "never"} ref={canvasRef} style={{ position: "absolute", zIndex: "-10", height: "100vh"}}>
         <Rain />
         <ambientLight color="#FFFFFF" intensity={10} />
         <spotLight intensity={1} angle={0.1} penumbra={1} position={[0, 20, 10]} castShadow />
@@ -25,6 +26,8 @@ export default function CanvasWrapper({}: {}) {
           rotation={[-Math.PI / 2, 0, 0]}
         />
       </Canvas>
+    </div>
+
     </div>
   );
 }

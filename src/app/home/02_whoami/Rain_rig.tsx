@@ -1403,7 +1403,7 @@ export function Rain({ category = 0 }: { category?: number }) {
             rotation={[-Math.PI / 2, 0, 0]}
           />
         </group>
-        <mesh
+        {/* <mesh
           name="Cylinder"
           castShadow
           receiveShadow
@@ -1420,7 +1420,7 @@ export function Rain({ category = 0 }: { category?: number }) {
           material={materials["Material.004"]}
           position={[0, 0.12, 0]}
           scale={[0.49, 0.08, 0.49]}
-        />
+        /> */}
       </group>
     </group>
   );
