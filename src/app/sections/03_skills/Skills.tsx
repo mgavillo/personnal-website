@@ -1,12 +1,10 @@
 "use client";
-import Selector from "../../../../bin/HoverButton";
 import Skill from "./Skill";
 import { skillSet } from "./skillSet";
 import useCharacterStore from "@/lib/zustandStore";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { useParallax } from "@/lib/useParallax";
 import { motion, useScroll } from "framer-motion";
-import { Reorder } from "framer-motion";
 import SectionTitle from "@/components/SectionTitle";
 
 function Circle() {
