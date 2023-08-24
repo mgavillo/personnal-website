@@ -9,18 +9,18 @@ import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Frontend developer & designer",
-  description: "Front end developer and designer available to hire as a freelancer.",
-  creator: "Swaggy Marie",
-  icons: [
-    {
-      rel: "icon",
-      type: "image/png",
-      url: "/icon.png",
-    },
-  ],
-};
+// export const metadata: Metadata = {
+//   title: "Frontend developer & designer",
+//   description: "Front end developer and designer available to hire as a freelancer.",
+//   creator: "Swaggy Marie",
+//   icons: [
+//     {
+//       rel: "icon",
+//       type: "image/png",
+//       url: "/icon.png",
+//     },
+//   ],
+// };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
