@@ -10,7 +10,7 @@ export default function Grid({
 }) {
 
   return (
-    <motion.div layout layoutRoot className="mt-4 gap-4 columns-xs w-full">
+    <motion.div layout layoutRoot className="mt-4 gap-4 md:columns-xs columns-sm w-full">
       {data?.map((e, i) => (
         <div className="flex flex-col mb-4 gap-2">
           <Element element={e}/>

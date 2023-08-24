@@ -43,9 +43,9 @@ export default async function Gallery({
     );
 
   return (
-    <div className="w-full h-fit min-h-screen p-24 pl-4 flex flex-row justify-between gap-24">
+    <section className="pt-24 pl-4 flex flex-col md:flex-row justify-between gap-24">
       <Filter />
       <Grid data={filteredData} />
-    </div>
+    </section>
   );
 }
