@@ -59,11 +59,10 @@ export default function ContactForm({ setSent }: { setSent: any }) {
               </div>
             ))}
           </div>
-          <div className="flex flex-col gap-3 mt-4">
+          <div className="flex flex-col gap-3 md:gap-6 mt-4">
             <Input className="w-fill" type="name" label="Name" placeHolder="" name="user_name" />
             <Input className="w-fill" type="email" label="Email address" placeHolder="" name="user_email" />
             <TextArea label="Tell me more about it" placeHolder="" name="details" />
-            <div className="w-full flex flex-col items-center"></div>
           </div>
         </div>
         <button
