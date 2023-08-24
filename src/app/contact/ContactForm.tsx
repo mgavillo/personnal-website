@@ -2,6 +2,7 @@ import { TextArea, Input } from "@/components/inputs";
 import { FormEvent, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import SectionTitle from "@/components/SectionTitle";
+import Selector from "@/components/buttons/Selector";
 
 export default function ContactForm({ setSent }: { setSent: any }) {
   const categories = ["Design", "Web development", "Deployment"];
@@ -48,16 +49,19 @@ export default function ContactForm({ setSent }: { setSent: any }) {
         <div className="flex flex-col gap-2 w-full">
           <p className="">I'm interested in... </p>
           <div className="flex flex-row gap-2">
-            {categories.map((el, i) => (
-              <div
-                onClick={() => changeSelection(i)}
-                className={`relative bg-dark-blue border border-white/10 rounded-md text-center cursor-pointer hover:bg-transparent flex items-center justify-center text-xs md:text-base px-4 py-2 hover:bg-gradient-to-r hover:from-blue/20 hover:to-neon-blue/30 ${
-                  selected[i] ? "bg-gradient-to-r from-blue/60 to-neon-blue/60" : "text-gray-400"
-                }`}>
-                {el}
-                <input id={el} type="checkbox" checked={selected[i]} className=" hidden" />
-              </div>
-            ))}
+            {categories.map(
+              (el, i) => (
+                <Selector onClick={() => changeSelection(i)} selected={selected[i]} content={el} />
+              )
+              // <div
+              //   onClick={() => changeSelection(i)}
+              //   className={`relative bg-dark-blue border border-white/10 rounded-md text-center cursor-pointer hover:bg-transparent flex items-center justify-center text-xs md:text-base px-4 py-2 hover:bg-gradient-to-r hover:from-blue/20 hover:to-neon-blue/30 ${
+              //     selected[i] ? "bg-gradient-to-r from-blue/60 to-neon-blue/60" : "text-gray-400"
+              //   }`}>
+              //   {el}
+              //   <input id={el} type="checkbox" checked={selected[i]} className=" hidden" />
+              // </div>
+            )}
           </div>
           <div className="flex flex-col gap-3 md:gap-6 mt-4">
             <Input className="w-fill" type="name" label="Name" placeHolder="" name="user_name" />
