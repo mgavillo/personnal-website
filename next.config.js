@@ -1,9 +1,15 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
-  i18n: {
-    locales: ["en"],
-    defaultLocale: "en",
-  },
+
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+    enabled: process.env.ANALYZE === 'true',
+  })
+
+  
+const nextConfig = module.exports = withBundleAnalyzer({
+//   i18n: {
+//     locales: ["en"],
+//     defaultLocale: "en",
+//   },
   images: {
     remotePatterns: [
       {
@@ -11,6 +17,6 @@ const nextConfig = {
       },
     ],
   },
-};
+})
 
 module.exports = nextConfig;
