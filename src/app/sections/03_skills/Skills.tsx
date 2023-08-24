@@ -1,5 +1,5 @@
 "use client";
-import Selector from "@/components/buttons/HoverButton";
+import Selector from "../../../../bin/HoverButton";
 import Skill from "./Skill";
 import { skillSet } from "./skillSet";
 import useCharacterStore from "@/lib/zustandStore";

@@ -1,12 +1,10 @@
 "use client";
 
-import CanvasWrapper from "./Canvas";
-import { Suspense, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import AnimatedLetters from "@/components/AnimatedLetters";
+import dynamic from "next/dynamic";
+import { Suspense, useRef } from "react";
 import useOnScreen from "@/lib/useOnScreen";
-import Waves3 from "@/components/backgrounds/Waves3";
 import SectionTitle from "@/components/SectionTitle";
+const CanvasWrapper = dynamic(() => import("./Canvas"), { ssr: false });
 
 export default function Whoami() {
   const sectionRef = useRef(null);
@@ -14,12 +12,6 @@ export default function Whoami() {
 
   return (
     <section className="items-start flex-col md:flex-row justify-around" ref={sectionRef}>
-      {/* {isOnScreen && (
-        <h2 className="flex flex-row items-center gap-2">
-        <span className="text-neon-pink">{"→ "}</span>
-        <AnimatedLetters text="whoami ?" />
-        </h2>
-      )} */}
       {/* <div className="flex flex-row justify-around"> */}
       <Suspense fallback="">
         <CanvasWrapper />
@@ -39,25 +31,25 @@ export default function Whoami() {
         </p>
         <ul className="pl-8 list-disc flex flex-col gap-2 text-gray-300 font-light text-xs md:text-base">
           <li>
-            While doing <span className="font-bold text-white">games in C</span>, I would spend time doing a ASCII art HUD, add trippy animations, take
-            care of creating a good game experience.
+            While doing <span className="font-bold text-white">games in C</span>, I would spend time doing a ASCII art
+            HUD, add trippy animations, take care of creating a good game experience.
           </li>
           <li>
-            When I developed an <span className="font-bold text-white">AI assistant</span>, I was thrilled to create a chatbot
-            persona around it.
+            When I developed an <span className="font-bold text-white">AI assistant</span>, I was thrilled to create a
+            chatbot persona around it.
           </li>
           <li>
-            When I did <span className="font-bold text-white">embedded systems</span>, we created a pretty funny satanic drinking
-            game which was a whole experience : with music, engraved PCB, leds everywhere.
+            When I did <span className="font-bold text-white">embedded systems</span>, we created a pretty funny satanic
+            drinking game which was a whole experience : with music, engraved PCB, leds everywhere.
           </li>
           <li>
-          That's why after school I pretty naturally learned more about <span className="font-bold text-white">graphic design</span>,{" "}
-          <span className="font-bold text-white">ui design</span> and <span className="font-bold text-white">3D</span>, so I could mix both code and visual creativity.
+            That's why after school I pretty naturally learned more about{" "}
+            <span className="font-bold text-white">graphic design</span>,{" "}
+            <span className="font-bold text-white">ui design</span> and <span className="font-bold text-white">3D</span>
+            , so I could mix both code and visual creativity.
           </li>
         </ul>
-        <p>
-
-        </p>
+        <p></p>
         <p>
           Hard work and kindness are my core values. I'm an optimist at heart, dedicated to projects that can drive real
           societal change, hence my love for ecology, blockchain, AI for good, open source.

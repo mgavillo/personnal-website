@@ -1,6 +1,6 @@
 "use client"
 import useCharacterStore from "@/lib/zustandStore";
-import Selector from "@/components/buttons/HoverButton";
+import Selector from "../../../../bin/HoverButton";
 
 export default function Arrow({ side, onPointerDown, onPointerUp}: { side: "left" | "right", onPointerDown:any, onPointerUp: any}) {
   const { incrCharacterCat, decrCharacterCat } = useCharacterStore();
