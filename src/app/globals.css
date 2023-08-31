@@ -11,6 +11,7 @@
   --foreground-rgb: #FFF;
   --background-start-rgb: theme(colors.dark-blue);
   --background-end-rgb: theme(colors.dark-blue);
+  font-display: swap;
 }
 
 html {
@@ -51,8 +52,12 @@ h3 {
 
 
 .font-outline {
-  background: -webkit-linear-gradient(45deg, #FF00E588, theme(colors.neon-pink));
+  background: -webkit-linear-gradient(45deg, #FF00E588, #FF00E5);
   -webkit-background-clip: text;
   -webkit-text-stroke: 2.5px transparent;
-  color: theme(colors.dark-blue)
+  color: #000030;
+}
+
+.screen-bg {
+  @apply border border-white/20 bg-gradient-to-t from-neon-blue/40 to-neon-blue/20 rounded-md;
 }

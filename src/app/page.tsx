@@ -5,7 +5,7 @@ import Skills from "./sections/03_skills/Skills";
 
 export default function Home() {
   return (
-    <main className="relative flex min-h-screen flex-col items-center justify-between h-fit overflow-hidden gap-2 md:gap-24">
+    <main className="relative flex min-h-screen flex-col items-center justify-between h-fit overflow-hidden gap-12 md:gap-24">
       <Hello />
       <Whoami />
       <Skills />
