@@ -35,13 +35,13 @@ export default function ContactForm({ setSent }: { setSent: any }) {
   }
 
   return (
-    <section className="py-24">
+    <section className="pb-24 pt-44">
       <form
         ref={formRef}
         className=" flex flex-col gap-4 w-full md:w-3/5 h-full bg-dark-blue/10 justify-around items-center backdrop-blur-lg"
         onSubmit={(e) => sendEmail(e)}>
         <div className="w-full flex flex-col gap-3">
-          <h3 className=" text-gray-400">Have a project ?</h3>
+          {/* <h3 className=" text-white/40">Have a project ?</h3> */}
           <span className="mb-12">
             <SectionTitle text="Contact me" />
           </span>
