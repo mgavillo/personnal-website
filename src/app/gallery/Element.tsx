@@ -28,14 +28,14 @@ const dropIn = {
   },
 };
 
-export default function Element({ element }: { element: GalleryElement }) {
+export default function Element({ element, expand=true }: { element: GalleryElement, expand: boolean }) {
   const [isLoading, setLoading] = useState(true);
   const [selected, setSelected] = useState(false);
   const modal = useRef<HTMLDivElement>(null);
   return (
     <motion.div
       layout
-      className="group overflow-hidden cursor-pointer relative w-full"
+      className="group overflow-hidden md:cursor-pointer relative w-full"
     >
       <Image
         alt="image"
@@ -72,7 +72,7 @@ export default function Element({ element }: { element: GalleryElement }) {
           </div>
         </>
       )}
-      {selected && (
+      {expand && selected && (
         <motion.div
           id="my_modal_2"
           className="fixed inset-0 h-screen w-screen flex items-center justify-center bg-black/60 z-50 backdrop-blur-sm p-12"

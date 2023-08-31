@@ -7,6 +7,7 @@ import { MdRemove } from "react-icons/md";
 import HoveredSelector from "@/components/HoveredSelector";
 import Selector from "@/components/buttons/Selector";
 
+
 function Row({ name, data, setCategories }: { name: string; data: string[]; setCategories: any }) {
   const [hovered, setHovered] = useState(false);
   const [checked, setChecked] = useState(true);
@@ -68,7 +69,7 @@ function Row({ name, data, setCategories }: { name: string; data: string[]; setC
   return (
     <li
       ref={ref2}
-      className={`relative w-full flex flex-row items-center gap-2 pt-2 border border-white/10 ${
+      className={`relative w-full flex flex-row items-center gap-2 pt-2 bg-neon-blue/10 ${
         checked || indeterminate ? "text-white" : "text-gray-300"
       }`}
       onClick={() => setChecked(!checked)}
@@ -187,6 +188,7 @@ export default function Filter() {
           onClick={() => updateSelected(2)}
           selected={selected[2]}
         />
+        {/* <Icon/> */}
       </div>
       <ul className="flex flex-row md:flex-col items-start w-full">
         {_categories.map((el, i) => (
