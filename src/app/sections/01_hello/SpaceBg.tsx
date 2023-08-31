@@ -17,9 +17,9 @@ function Lights() {
 
   return (
     <>
-      <directionalLight intensity={30} color="#FF00E5" rotation={[0, 0, 1.60254]} position={[0, 0, 300]} />
+      <directionalLight intensity={30} color="#FF00E5" rotation={[0, 10, 1.60254]} position={[0, 20, 300]} />
       <directionalLight intensity={10} color="#0000FF" rotation={[0, 0, 1.60254]} position={[0, 50, 300]} />
-      <directionalLight intensity={1} color="#6a00ff" position={[0, 20, -50]} rotation={[0, 3, 0]} />
+      <directionalLight intensity={2} color="#6a00ff" position={[0, 20, -50]} rotation={[0, 60, 0]} />
       <ambientLight color="#2809DA" />
     </>
   );
@@ -68,6 +68,7 @@ export default function SpaceBg() {
       </mesh>
       <mesh castShadow receiveShadow position={[0, -23, -80]} rotation={[-Math.PI / 2, 0, 0]}>
         <sphereGeometry args={[20, 124, 78]} />
+        {/* <meshMatcapMaterial /> */}
         <meshPhongMaterial color="#000038" />
       </mesh>
       <EffectComposer>

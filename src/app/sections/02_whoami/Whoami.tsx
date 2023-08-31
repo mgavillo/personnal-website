@@ -4,25 +4,33 @@ import dynamic from "next/dynamic";
 import { Suspense, useRef } from "react";
 import useOnScreen from "@/lib/useOnScreen";
 import SectionTitle from "@/components/SectionTitle";
+import { motion, useScroll } from "framer-motion";
+import { useParallax } from "@/lib/useParallax";
+
 const CanvasWrapper = dynamic(() => import("./Canvas"), { ssr: false });
 
 export default function Whoami() {
   const sectionRef = useRef(null);
   const isOnScreen = useOnScreen(sectionRef);
+  const { scrollYProgress } = useScroll({ target: sectionRef });
+  const y = useParallax(scrollYProgress, -300);
 
   return (
-    <section className="items-start flex-col md:flex-row justify-around" ref={sectionRef}>
+    <motion.section
+      className=" h-fit flex-col md:flex-row justify-around items-center gap-12"
+      // style={{ y }}
+      ref={sectionRef}>
       {/* <div className="flex flex-row justify-around"> */}
       <Suspense fallback="">
         <CanvasWrapper />
       </Suspense>
-      <div className="flex flex-col w-full md:w-2/5 min-w-[270px] gap-8 h-full justify-center text-lg">
+      <div className="flex flex-col w-full md:w-2/5 min-w-[350px] gap-8 h-full justify-center text-lg">
         <SectionTitle text="About me" />
         {/* <p>
           I love to be creative and learn new things: web dev, but also : AI , Graphic design, Crypto, 3D, ecology,
           sociology, economics.{" "}
         </p> */}
-        <p className=" text-base md:text-2xl">
+        <p className=" text-base md:text-2xl ">
           I come from the{" "}
           <a href="https://42.fr/en/homepage/" target="_blank" className=" font-bold italic ">
             42 school
@@ -50,12 +58,12 @@ export default function Whoami() {
           </li>
         </ul>
         <p></p>
-        <p>
+        {/* <p>
           Hard work and kindness are my core values. I&apos;m an optimist at heart, dedicated to projects that can drive real
           societal change, hence my love for ecology, blockchain, AI for good, open source.
-        </p>
+        </p> */}
       </div>
       {/* </div> */}
-    </section>
+    </motion.section>
   );
 }

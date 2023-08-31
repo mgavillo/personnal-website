@@ -2,7 +2,7 @@
 import Skill from "./Skill";
 import { skillSet } from "./skillSet";
 import useCharacterStore from "@/lib/zustandStore";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParallax } from "@/lib/useParallax";
 import { motion, useScroll } from "framer-motion";
 import SectionTitle from "@/components/SectionTitle";
@@ -17,8 +17,19 @@ export default function Skills() {
   const top = useRef(0);
   // const [scrollY, setScrollY] = useState(0);
   const { scrollYProgress } = useScroll({ target: ref });
-  const y = useParallax(scrollYProgress, 100);
+  const [isMobile, setIsMobile] = useState<boolean>(typeof window !== "undefined" && window.innerWidth <= 767.98);
+  const y = useParallax(scrollYProgress, isMobile ? 0 : 100);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(typeof window !== "undefined" && window.innerWidth <= 767.98);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  
   // const handleScroll = () => {
   //   setScrollY(top.current - window.pageYOffset - ref.current.getBoundingClientRect().height/2 );
   // };
@@ -33,7 +44,7 @@ export default function Skills() {
   // }, []);
 
   return (
-    <section className="items-center justify-center pt-0 pb-24">
+    <section className="items-center justify-center pt-0 pb-24 h-fit gap-8">
       <span className="w-full">
         <SectionTitle text="Skills" />
       </span>
