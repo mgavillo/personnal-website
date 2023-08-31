@@ -1,17 +1,17 @@
 import { MouseEventHandler, ReactElement, ReactNode, createElement } from "react";
 import Tooltip from "../Tooltip";
+import Image from "next/image";
 import { IconType } from "react-icons";
-
 interface SelectorParams {
   selected: boolean;
   onClick?: MouseEventHandler;
   className?: string;
   content: string;
-  icon?: IconType | undefined;
+  icon?: string | IconType;
 }
 
 export default function Selector({ selected, onClick, className, content, icon }: SelectorParams) {
-  const Button = ({ children }: { children: ReactNode | string }) => (
+  const Button = ({ children }: { children: ReactNode | string }) => (
     <button
       className={`relative bg-dark-blue border border-white/10 rounded-md text-center cursor-pointer hover:bg-transparent flex items-center justify-center p-3 hover:bg-gradient-to-r hover:from-blue/20 hover:to-neon-blue/30 ${
         selected ? "bg-gradient-to-r from-blue/60 to-neon-blue/60" : "text-gray-400"
@@ -19,14 +19,14 @@ export default function Selector({ selected, onClick, className, content, icon }
       onClick={onClick}>
       {children}
     </button>
-  )
+  );
 
   if (icon)
     return (
       <Tooltip text={content}>
+        {/* <Button>{<Image src={icon} alt={icon + " icon"} width={20} height={20}/>}</Button> */}
         <Button>{createElement(icon)}</Button>
       </Tooltip>
     );
   else return <Button>{content}</Button>;
 }
-
